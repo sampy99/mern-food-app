@@ -1,15 +1,20 @@
-
+import React from 'react'
 import './App.css';
-import Navbar from './components/Navbar';
 import Home from './screens/Home';
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
+import Login from './screens/Login';
 
 
 function App() {
   return (
-    <>
-      <div><Navbar></Navbar></div>
-      <div><Home></Home></div>
-    </>
+    <Router>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/login" element={<Login/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
