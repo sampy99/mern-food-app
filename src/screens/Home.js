@@ -4,20 +4,16 @@ import Footer from '../components/Footer'
 import Card from '../components/Card'
 import Caraousel from '../components/Caraousel'
 
-export default function Home() { 
-    return(
-    <div>
-        <div> <Navbar/> </div>
-        <div><Caraousel/></div>
-
-<div>
-    <Card/>
-</div>
-
-
-        <div> <Footer/> </div>
-    </div>
-    ) 
+export default function Home() {
+    return (
+        <div>
+            <div> <Navbar /> </div>
+            <div><Caraousel /></div>
+            <div className='m-4'><Card /><Card /></div>
+            
+            <div> <Footer /> </div>
+        </div>
+    )
 }
 
 
