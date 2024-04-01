@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
 
@@ -29,14 +30,10 @@ export default function Login() {
 
 
   return (
-
     <>
       <div className='container'>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="exampleInputName1" className="form-label">Full Name</label>
-            <input type="name" className="form-control" name='name' value={credentials.name} onChange={onChange} />
-          </div>
+
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
             <input type="email" className="form-control" name='email' value={credentials.email} onChange={onChange} />
@@ -45,16 +42,9 @@ export default function Login() {
             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
             <input type="password" className="form-control" name='password' value={credentials.password} onChange={onChange} id="exampleInputPassword1" />
           </div>
-          <div className="mb-3">
-            <label htmlFor="exampleInputAddress1" className="form-label">Address</label>
-            <input type="address" className="form-control" name='geolocation' value={credentials.geolocation} onChange={onChange} id="exampleInputAddress1" />
-          </div>
-          {/* <div className="mb-3 form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-        </div> */}
-          <button type="submit" className="m-3 btn btn-success">Submit</button>
-          <Link to="/login" className='m-3 btn btn-danger'>Already a User</Link>
+
+          <button type="submit" className="m-3 btn btn-success">Login</button>
+          <Link to="/createuser" className='m-3 btn btn-danger'>Not Yet Registeredr</Link>
         </form>
       </div>
     </>
