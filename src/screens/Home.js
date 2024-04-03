@@ -36,8 +36,18 @@ export default function Home() {
                 {
                     foodCat !== []
                     ? foodCat.map((data) => {
-                        return(
-                        <div>Hello World<div/>
+                        return(<div>
+                        <div key={data._id } className='fs-3 m-3'>
+                            {data.CategoryName}
+                        </div>
+                        <hr/>
+                        {foodData !== []? foodData.filter((item)=>{
+                          item.CategoryName == data.CategoryName
+                        }){
+                            return (<div>
+                            </div>
+                        )}: <div>No such data found"</div>
+                        </div>
                         )
                     }) 
                     : ""
