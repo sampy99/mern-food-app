@@ -41,12 +41,17 @@ export default function Home() {
                             {data.CategoryName}
                         </div>
                         <hr/>
-                        {foodData !== []? foodData.filter((item)=>{
-                          item.CategoryName == data.CategoryName
-                        }){
-                            return (<div>
-                            </div>
-                        )}: <div>No such data found"</div>
+                        {foodData !== []
+                        ? 
+                        foodData.filter((item)=> item.CategoryName ===  data.CategoryName)
+                        .map(filterItems =>{
+                            return (
+                                <div key={filterItems._id}>
+                                    <Card ></Card>
+                                </div>
+                            )
+                        }
+                        ): <div> No such data found </div>
                         </div>
                         )
                     }) 
