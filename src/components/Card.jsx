@@ -1,6 +1,11 @@
 import React from 'react'
 
 export default function Card(props) {
+
+    let options = props.options;
+    let priceOptions = Object.keys(options);
+
+
     return (
         <div>
             <div>
@@ -8,7 +13,6 @@ export default function Card(props) {
                     <img src="https://source.unsplash.com/random/500x400/?burger" className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{props.foodName}</h5>
-                        <p className="card-text">Some quick example text.</p>
                         <div className='container w-100'>
                             <select className='m-2 h-100  bg-success rounded'>
                                 {Array.from(Array(6), (e, i) => {
@@ -20,8 +24,9 @@ export default function Card(props) {
 
                             <select className='m-2 h-100  bg-success rounded'>
 
-                                <option value="Half">Half</option>
-                                <option value="Full">Full</option>
+                               {priceOptions.map((data)=>{
+                                  return <option key={data} value={data}>{data}</option>
+                               })}
 
                             </select>
 
