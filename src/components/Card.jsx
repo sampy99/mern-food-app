@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import { useDispatchCart,useCart } from './ContextReducer';
 
 
 export default function Card(props) {
 
-    let options = props.options;
-    let priceOptions = Object.keys(options);
     let dispatch = useDispatchCart();
     let data = useCart();
+    const priceRef = useRef();
+    let options = props.options;
+    let priceOptions = Object.keys(options);
 
     const [qty,setQty] = useState(1)
     const [size,setSize] = useState("")
@@ -17,6 +18,9 @@ export default function Card(props) {
     }
 
     let finalPrice = qty * parseInt(options[size]);
+    useEffect(() => {
+        setSize(priceRef.current.value)
+    }, [])
 
 
     return (
@@ -35,7 +39,7 @@ export default function Card(props) {
                                 })}
                             </select>
 
-                            <select className='m-2 h-100 bg-success rounded' onChange={(e)=>setSize(e.target.value)}>
+                            <select className='m-2 h-100 bg-success rounded' ref={priceRef} onChange={(e) => setSize(e.target.value)}>
 
                                 {priceOptions.map((data) => {
                                     return <option key={data} value={data}>{data}</option>
@@ -44,7 +48,7 @@ export default function Card(props) {
                             </select>
 
                             <div className='d-inline h-100 fs-5'>
-                                {finalPrice}
+                                Rs.{finalPrice}.00
                             </div>
                         </div>
                         <hr>
