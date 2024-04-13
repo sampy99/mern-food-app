@@ -21,7 +21,7 @@ export default function Home() {
         response = await response.json();
         setfoodData(response[0])
         setfoodCat(response[1])
-        // console.log(response[0],response[1]);
+        
     }
 
     useEffect(() => {
@@ -33,13 +33,13 @@ export default function Home() {
         <div>
             <div> <Navbar /> </div>
 
-{ /* Carousal is represent here directly */ }
+            { /* Carousal is represent here directly */}
             <div>
                 <div id="carouselExampleControls" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{ objectFit: 'contain !important' }}>
                     <div className="carousel-inner" id='carousel'>
                         <div className='carousel-caption' style={{ zIndex: '10' }}>
                             <div class="d-flex justify-content-center">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) =>{setSearch(e.target.value)}} />
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
                                 {/* <button class="btn btn-outline-success text-white bg-success" type="submit">Search</button> */}
                             </div>
                         </div>
@@ -61,9 +61,9 @@ export default function Home() {
                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>
-            </div>
+                </div>
 
-        </div>
+            </div>
 
 
             <div className='container'>
@@ -77,7 +77,7 @@ export default function Home() {
                                 <hr />
                                 {foodData !== []
                                     ?
-                                    foodData.filter((item) => item.CategoryName === data.CategoryName && (item.name.toLowerCase().includes(search.toLowerCase()))) 
+                                    foodData.filter((item) => item.CategoryName === data.CategoryName && (item.name.toLowerCase().includes(search.toLowerCase())))
                                         .map(filterItems => {
                                             return (
                                                 <div key={filterItems._id} className='col-12 col-md-6 col-lg-3'>
